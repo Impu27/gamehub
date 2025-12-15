@@ -31,7 +31,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/gamehub-automated-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/gamehub-app:latest
 
   deploy:
     needs: build
@@ -43,10 +43,19 @@ jobs:
 
       - name: Start Minikube
         run: |
-          minikube start --driver=docker
+          minikube status || minikube start --driver=docker
           minikube status
       - name: Pull Docker Image from Docker Hub
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/gamehub-automated-app:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/gamehub-app:latest
+        
+      - name: Enable Ingress Controller
+        run: |
+          minikube addons enable ingress
+          kubectl wait --namespace ingress-nginx \
+            --for=condition=ready pod \
+            --selector=app.kubernetes.io/component=controller \
+            --timeout=180s
+
 
       - name: Deploy to Minikube using k8s.yml
         run: |
@@ -56,9 +65,9 @@ jobs:
         run: sleep 120s
         shell: bash
 
-      - name: Expose gamehub-automated-app Service
+      - name: Expose gamehub-app Service
         run: |
           minikube service list
       - name: Get Minikube Service URL
         run: |
-          minikube service gamehub-automated-app-service --url
+          minikube service gamehub-app-service --url

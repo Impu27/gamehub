@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: game2048
-        image: 8sem/2048-game
+        image: tejubagalad/2048-game:latest	
         ports:
         - containerPort: 80
 ---
@@ -25,6 +25,7 @@ metadata:
 spec:
   selector:
     app: game2048
+  type: NodePort
   ports:
     - port: 80
       targetPort: 80
