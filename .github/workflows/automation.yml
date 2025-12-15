@@ -92,6 +92,6 @@ jobs:
 
       - name: Show Service URLs
         run: |
-          echo "🎮 PlayHive Hub: $(minikube service gamehub-app-service --url)"
+          echo "🎮 PlayHive Hub: $(minikube service gamehub-service --url)"
           echo "🐍 Snake Game: $(minikube service snake-service --url)"
-          echo "🧩 2048 Game: $(minikube service 2048-service --url)"
+          echo "🧩 2048 Game: $(minikube service game2048-service --url)"
