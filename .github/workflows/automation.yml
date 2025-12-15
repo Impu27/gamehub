@@ -30,7 +30,7 @@ jobs:
           context: ./microservice-arch/gamehub-microarch/app
           file: ./microservice-arch/gamehub-microarch/app/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/gamehub-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/gameapp:latest
 
       - name: Build & Push Snake Image
         uses: docker/build-push-action@v4
@@ -46,7 +46,7 @@ jobs:
           context: ./microservice-arch/gamehub-microarch/TwentyFortyEight
           file: ./microservice-arch/gamehub-microarch/TwentyFortyEight/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/twenty48:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/2048:latest
 
 
 
@@ -65,7 +65,7 @@ jobs:
           
       - name: Pull Latest Images from Docker Hub
         run: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/gamehub-app:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/gameapp:latest
           docker pull ${{ secrets.DOCKER_USERNAME }}/snake:latest
           docker pull ${{ secrets.DOCKER_USERNAME }}/2048:latest
 
@@ -92,6 +92,6 @@ jobs:
 
       - name: Show Service URLs
         run: |
-          echo "🎮 PlayHive Hub: $(minikube service gamehub-service --url)"
+          echo "🎮 PlayHive Hub: $(minikube service gameapp-service --url)"
           echo "🐍 Snake Game: $(minikube service snake-service --url)"
-          echo "🧩 2048 Game: $(minikube service game2048-service --url)"
+          echo "🧩 2048 Game: $(minikube service 2048-service --url)"
