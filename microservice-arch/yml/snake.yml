@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: snake
-        image: tejubagalad/snake-game:latest
+        image: tejubagalad/snake:latest
         ports:
         - containerPort: 80
         resources:
@@ -33,4 +33,3 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-

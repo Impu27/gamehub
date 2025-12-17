@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gameapp
+  name: gamehub
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gameapp
+      app: gamehub
   template:
     metadata:
       labels:
-        app: gameapp
+        app: gamehub
     spec:
       containers:
-      - name: gameapp
-        image: tejubagalad/gameapp:latest
+      - name: gamehub
+        image: tejubagalad/gamehub:latest
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: gameapp-service
+  name: gamehub-service
 spec:
   selector:
-    app: gameapp
-  type: NodePort
+    app: gamehub
   ports:
     - port: 80
       targetPort: 80
-

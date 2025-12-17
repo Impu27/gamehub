@@ -33,7 +33,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: game2048-service
+                name: g2048-service
                 port:
                   number: 80
-
