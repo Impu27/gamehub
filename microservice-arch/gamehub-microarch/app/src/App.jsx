@@ -12,7 +12,7 @@ const App = () => {
   };
 
   const getGameUrl = (game) => {
-    if (game === '2048') return 'http://2048.gamehub.local';
+    if (game === '2048') return 'http://g2048.gamehub.local';
     if (game === 'snake') return 'http://snake.gamehub.local';
     return '';
   };
