@@ -88,7 +88,7 @@ jobs:
         run: sleep 120s
         shell: bash
 
-      - name: Show Ingress URLs (CORRECT WAY)
+      - name: Show Ingress URLs 
         run: |
           echo "🚀 Application URLs (via Ingress):"
           echo "🐍 Snake     → http://snake.gamehub.local"
