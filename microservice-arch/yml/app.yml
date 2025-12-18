@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gamehub
-        image: tejubagalad/gamehub:latest
+        image: impud/gamehub:latest
         ports:
         - containerPort: 80
 ---

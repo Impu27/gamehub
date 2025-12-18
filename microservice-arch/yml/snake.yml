@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: snake
-        image: tejubagalad/snake:latest
+        image: impud/snake:latest
         ports:
         - containerPort: 80
         resources:
