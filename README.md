@@ -16,5 +16,5 @@ Deployment Automation:	CI/CD pipeline structure using GitHub Actions & Docker Hu
 
 ## Acknowledgements
 
-This project was developed as part of a workshop on Microservices, Docker, Kubernetes, and CI/CD automation conducted by Teju Bagalad.
+This project was developed as part of a workshop on Microservices, Docker, Kubernetes, and CI/CD automation conducted by Tejashwini Bagalad.
 I would like to thank her for providing the foundational material, guidance, and the original starter repository used as the base for this project.
